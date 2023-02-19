@@ -1,8 +1,10 @@
 # fail2telegram
 
-fail2telegram is a simple service for the [fail2ban](https://github.com/fail2ban/fail2ban) project that can send telegram notifications whenever an IP gets banned/unbanned and execute commands, that you send to your telegram bot.
+fail2telegram is a simple service for the [fail2ban](https://github.com/fail2ban/fail2ban) project that can send telegram notifications whenever an IP gets banned/unbanned.
 
 Easy to install and easy to use.
+
+###### Project will soon support sending commands to the server and receiving the response as a message.
 
 ## Prerequisites
 
@@ -87,7 +89,7 @@ If everything is working, you should start getting telegram notifications whenev
 
 ## Usage
 
-dddd
+The telegram bot will send you everything automatically. But if you only want to receive a message when an IP gets banned or unbanned (not both), edit the `telegram_config.json` again and set the variables `receive_banned` and `receive_unbanned` to `false`. Only the variables set to `true` will be send as a telegram notification. 
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
