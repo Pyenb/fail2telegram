@@ -1,4 +1,6 @@
 {
     "telegram_api_token": "",
-    "telegram_chat_id": ""
+    "telegram_chat_id": "",
+    "receive_banned": true,
+    "receive_unbanned": true
 }

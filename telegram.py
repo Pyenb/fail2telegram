@@ -34,9 +34,15 @@ class telegramAction(ActionBase):
         self.send_message("Fail2ban stopped")
         
     def ban(self, aInfo):
-        location = self.get_location(aInfo['ip'])
-        self.send_message(f"{aInfo['ip']} from {location} banned.")
+        if self.config['receive_banned']:
+            location = self.get_location(aInfo['ip'])
+            self.send_message(f"{aInfo['ip']} from {location} banned")
         
+    def unban(self, aInfo):
+        if self.config['receive_unbanned']:
+            location = self.get_location(aInfo['ip'])
+            self.send_message(f"{aInfo['ip']} from {location} unbanned")
+    
     def get_location(self, ip):
         response = requests.get(f'https://ipapi.co/{ip}/json/').json()
         return response['country_name']
