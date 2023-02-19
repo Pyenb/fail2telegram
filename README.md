@@ -27,7 +27,7 @@ Use `git clone` to download the repository to your local machine:
 1. Move the files `telegram.py` and `telegram_config.json` into the `action.d` folder inside of your fail2ban installation location. (e.g. `/etc/fail2ban/action.d`)
 
 ###### Note: If your installation location differs from the default `/etc/fail2ban/action.d`, edit the `self.installpath` variable inside the `telegram.py`
-\
+
 2. Edit your `jail.local` config and add the line:
 
 ```
