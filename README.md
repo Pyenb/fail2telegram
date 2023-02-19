@@ -53,51 +53,41 @@ logpath = %(sshd_log)s
 backend = %(sshd_backend)s
 ```
 
+and save the changes of course.
+
+3. Now we need to create a new telegram bot. For that open a new chat with [BotFather](https://telegram.me/botfather), type in the command `/newbot` and follow the instructions. In the end you should see a message like this:
+
+![success](https://i.imgur.com/ugOzB1B.png)
+
+Now copy the token to access the HTTP API and paste it into the `telegram_api_token` entry inside of the `telegram_config.json`. (Don't worry about the `telegram_chat_id`)
+
+4. Start a chat with your newly created bot and send a message (can be whatever).
+
+5. Restart the fail2ban service using:
+
+```bash
+> service fail2ban restart
+```
+
+and check if the bot got the chat ID using:
+
+```bash
+> service fail2ban status
+```
+
+the expected output should look something like this:
+
+![status](https://i.imgur.com/wArFf0Q.png)
+
+If everything is working, you should start getting telegram notifications whenever someone gets banned.
+
+![texts](https://i.imgur.com/GcAVd5R.png)
+
+###### Note: will send you everyone that got banned in your `findtime` defined timeframe at startup. After that just new bans.
+
 ## Usage
 
-Open your download location and execute the script from a console window.
-
-Execute the `cloudcheck.py`
-
-```bash
-> python cloudcheck.py
-
-usage: cloudcheck.py [-h] [-u URL] [-f FILE] [-o]
-
-Check if a given server / or list of servers uses the cloudflare service.
-
-options:
-  -h, --help            show this help message and exit
-  -u URL, --url URL     The domain to check
-  -f FILE, --file FILE  Load a list of domains from a file.
-  -o, --output          Output the websites using cloudflare to a file.
-```
-
-`URL` defines the website adress that you want to scan.\
-`FILE` defines a file that you want to read and check if the given websites use cloudflare.\
-`--output` outputs websites that use cloudflare to `cloudflare.txt`
-
-The program will automatically remove anything before or after the URL, so `https://google.de/search?=abc` would become `google.de`
-
-### Example with a single URL:
-
-```bash
-> python cloudcheck.py -u google.de
-
-[!] google.de does not use cloudflare
-```
-
-### Example with a file:
-The file has to be in a readable format (preferred `.txt`) and the websites need to be listed one below another. 
-
-```bash
-> python cloudcheck.py -f websites.txt
-
-[!] google.de does not use cloudflare
-[!] abc.xyz does not use cloudflare
-[!] www.ebay.com does not use cloudflare
-[*] realsite.com uses cloudflare
-```
+dddd
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
