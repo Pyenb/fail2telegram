@@ -1,6 +1,6 @@
 # fail2telegram
 
-fail2telegram is a simple service for the [fail2ban](https://github.com/fail2ban/fail2ban) project that can send telegram notifications whenever an IP gets banned/unbanned.
+fail2telegram is a simple action for the [fail2ban](https://github.com/fail2ban/fail2ban) project that can send telegram notifications whenever an IP gets banned/unbanned.
 
 Easy to install and easy to use.
 
@@ -26,11 +26,15 @@ Use `git clone` to download the repository to your local machine:
 > git clone https://github.com/Pyenb/fail2telegram
 ```
 
-1. Move the files `telegram.py` and `telegram_config.json` into the `action.d` folder inside of your fail2ban installation location. (e.g. `/etc/fail2ban/action.d`)
+### 1. Moving Files
+
+Move the files `telegram.py` and `telegram_config.json` into the `action.d` folder inside of your fail2ban installation location. (e.g. `/etc/fail2ban/action.d`)
 
 ###### Note: If your installation location differs from the default `/etc/fail2ban/action.d`, edit the `self.installpath` variable inside the `telegram.py`
 
-2. Edit your `jail.local` config and add the line:
+### 2. Editing
+
+Edit your `jail.local` config and add the line:
 
 ```
 action = telegram.py
@@ -57,15 +61,21 @@ backend = %(sshd_backend)s
 
 and save the changes of course.
 
-3. Now we need to create a new telegram bot. For that open a new chat with [BotFather](https://telegram.me/botfather), type in the command `/newbot` and follow the instructions. In the end you should see a message like this:
+### 3. Telegram Bot
+
+Now we need to create a new telegram bot. For that open a new chat with [BotFather](https://telegram.me/botfather), type in the command `/newbot` and follow the instructions. In the end you should see a message like this:
 
 ![success](https://i.imgur.com/ugOzB1B.png)
 
 Now copy the token to access the HTTP API and paste it into the `telegram_api_token` entry inside of the `telegram_config.json`. (Don't worry about the `telegram_chat_id`)
 
-4. Start a chat with your newly created bot and send a message (can be whatever).
+### 4. Chatting
 
-5. Restart the fail2ban service using:
+Start a chat with your newly created bot and send a message (can be whatever).
+
+### 5. Starting
+
+Restart the fail2ban service using:
 
 ```bash
 > service fail2ban restart
@@ -81,11 +91,11 @@ the expected output should look something like this:
 
 ![status](https://i.imgur.com/wArFf0Q.png)
 
-If everything is working, you should start getting telegram notifications whenever someone gets banned.
+If everything is working, you should start getting telegram notifications whenever someone gets banned or unbanned.
 
 ![texts](https://i.imgur.com/GcAVd5R.png)
 
-###### Note: will send you everyone that got banned in your `findtime` defined timeframe at startup. After that just new bans.
+###### Note: will send everyone that got banned/unbanned in the timeframe defined by `findtime` at startup. After that just new stuff.
 
 ## Usage
 
