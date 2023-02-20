@@ -20,19 +20,21 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the pac
 
 ## Installation
 
+### 1. Downloading
+
 Use `git clone` to download the repository to your local machine:
 
 ```bash
 > git clone https://github.com/Pyenb/fail2telegram
 ```
 
-### 1. Moving Files
+### 2. Moving the files
 
 Move the files `telegram.py` and `telegram_config.json` into the `action.d` folder inside of your fail2ban installation location. (e.g. `/etc/fail2ban/action.d`)
 
 ###### Note: If your installation location differs from the default `/etc/fail2ban/action.d`, edit the `self.installpath` variable inside the `telegram.py`
 
-### 2. Editing
+### 3. Editing
 
 Edit your `jail.local` config and add the line:
 
@@ -61,7 +63,7 @@ backend = %(sshd_backend)s
 
 and save the changes of course.
 
-### 3. Telegram Bot
+### 4. Telegram Bot
 
 Now we need to create a new telegram bot. For that open a new chat with [BotFather](https://telegram.me/botfather), type in the command `/newbot` and follow the instructions. In the end you should see a message like this:
 
@@ -69,11 +71,11 @@ Now we need to create a new telegram bot. For that open a new chat with [BotFath
 
 Now copy the token to access the HTTP API and paste it into the `telegram_api_token` entry inside of the `telegram_config.json`. (Don't worry about the `telegram_chat_id`)
 
-### 4. Chatting
+### 5. Chatting
 
 Start a chat with your newly created bot and send a message (can be whatever).
 
-### 5. Starting
+### 6. Starting
 
 Restart the fail2ban service using:
 
@@ -102,6 +104,12 @@ If everything is working, you should start getting telegram notifications whenev
 The telegram bot will send you everything automatically. But if you only want to receive a message when an IP gets banned or unbanned (not both), edit the `telegram_config.json` again and set the variables `receive_banned` and `receive_unbanned` to `false`. Only the variables set to `true` will be send as a telegram notification. e.g:
 
 ![config](https://i.imgur.com/OjWNHwl.png)
+
+After that just execute to reload fail2ban and load the new configuration.
+
+```bash
+> fail2ban-client reload
+```
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
