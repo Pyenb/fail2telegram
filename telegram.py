@@ -28,10 +28,10 @@ class telegramAction(ActionBase):
             print(f'Logged: {e}')
     
     def start(self):
-        self.send_message("Fail2ban started")
+        self.send_message("Fail2ban started.")
     
     def stop(self):
-        self.send_message("Fail2ban stopped")
+        self.send_message("Fail2ban stopped.")
         
     def ban(self, aInfo):
         if self.config['receive_banned']:
@@ -44,7 +44,8 @@ class telegramAction(ActionBase):
             self.send_message(f"{aInfo['ip']} from {location} unbanned")
     
     def get_location(self, ip):
-        response = requests.get(f'https://ipapi.co/{ip}/json/').json()
+        try: response = requests.get(f'https://ipapi.co/{ip}/json/').json()
+        except: return 'Unknown'
         return response['country_name']
 
 Action = telegramAction
