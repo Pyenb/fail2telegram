@@ -108,7 +108,7 @@ The telegram bot will send you everything automatically. But if you only want to
 After that just execute to reload fail2ban and load the new configuration.
 
 ```bash
-> fail2ban-client reload
+> service fail2ban restart
 ```
 
 ## Contributing
