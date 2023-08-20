@@ -7,14 +7,7 @@ Easy to install and easy to use.
 ## Prerequisites
 
 - python3+
-- requests
 - fail2ban installed on server
-
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the packages from the `requirements.txt`.
-
-```bash
-> pip3 install -r requirements.txt
-```
 
 ## Installation
 
@@ -24,6 +17,12 @@ Use `git clone` to download the repository to your local machine:
 
 ```bash
 > git clone https://github.com/Pyenb/fail2telegram
+```
+
+Then use the package manager [pip](https://pip.pypa.io/en/stable/) to install the packages from the `requirements.txt`.
+
+```bash
+> pip3 install -r requirements.txt
 ```
 
 ### 2. Moving the files
