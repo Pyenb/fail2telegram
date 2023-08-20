@@ -4,8 +4,6 @@ fail2telegram is a simple action for the [fail2ban](https://github.com/fail2ban/
 
 Easy to install and easy to use.
 
-###### Project will soon support sending commands to the server and receiving the response as a message.
-
 ## Prerequisites
 
 - python3+
