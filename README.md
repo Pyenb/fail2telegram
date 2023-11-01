@@ -13,7 +13,7 @@ Easy to install and easy to use.
 
 ### 1. Downloading
 
-Use `git clone` to download the repository to your local machine:
+Use `git clone` to download the repository to your local machine / server:
 
 ```bash
 > git clone https://github.com/Pyenb/fail2telegram
